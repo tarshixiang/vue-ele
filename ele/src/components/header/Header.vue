@@ -21,6 +21,7 @@
 
       <div class="support-count" @click="showDetail" v-if="seller.supports">
         <div class="count">{{ seller.supports.length }}个</div>
+        <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
 

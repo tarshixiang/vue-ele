@@ -26,6 +26,9 @@ export default {
   }
 }
 </script>
+<style>
+  @import './font/style/iconFont.scss';
+</style>
 
 <style lang="scss" >
 @import './styles/index.scss' ;

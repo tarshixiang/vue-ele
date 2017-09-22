@@ -3,7 +3,7 @@
     <div class="goods">
       <div class="menu-wrapper" ref='menuWrapper'>
         <ul>
-          <li v-for="(item, index) in goods" class="menu-item current"  :key="index" @click="selectMenu(index,$event)" >
+          <li v-for="(item, index) in goods" class="menu-item" :class="{'current':currentIndex===index}"  :key="index" @click="selectMenu(index,$event)" >
             <span class="text">
               <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
             </span>
@@ -37,7 +37,7 @@
         </ul>
       </div>
     </div>
-    <Food :food='selectedFood' ref='food'></Food>  
+    <Food :food='selectedFood' :showFlag='showFlag' ref="food"></Food>  
   </div>
   
 </template>
@@ -54,7 +54,8 @@ export default {
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       listHeight: [],
       scrollY: 0,
-      selectedFood: {}
+      selectedFood: {},
+      showFlag: false
     }
   },
   components:{
@@ -111,20 +112,22 @@ export default {
         return;
       }
       this.selectedFood = food;
-      // this.$refs.food.show();
+      this.flag = true;
+      this.$refs.food.show();
+
     },
+  },
+  computed:{
     currentIndex() {
-      console.log(111)
       for (let i = 0; i < this.listHeight.length; i++) {
         let height1 = this.listHeight[i];
         let height2 = this.listHeight[i + 1];
         if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
-          console.log(i)
           return i;
         }
       }
       return 0;
-    },
+    }
   }
 }
 </script>
