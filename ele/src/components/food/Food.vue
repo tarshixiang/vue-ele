@@ -53,7 +53,7 @@
   import BScroll from 'better-scroll';
   import Split from './../common/Split';
   import RatingSelect from './../common/RatingSelect'; 
-  const ALL = 2 ;
+  const ALL = 1 ;
 export default {
   props:['food'],
   components:{
@@ -71,9 +71,6 @@ export default {
         negative: '吐槽'
       }
     }
-  },
-  computed:{
-    
   },
   methods:{
     show() {

@@ -69,16 +69,16 @@ export default {
         if (!event._constructed) {
           return;
         }
-        this.selectType = type;
+        // this.selectType = type;
         // console.log(type, this.selectType )
-        // this.$emit('ratingtype.select', type);
+        this.$emit('ratingtype.select', type);
       },
       toggleContent(event) {
         if (!event._constructed) {
           return;
         }
         // this.onlyContent = !this.onlyContent;
-        // this.$emit('content.toggle', this.onlyContent);
+        this.$emit('content.toggle', event);
       }
     }
 }
